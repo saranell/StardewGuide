@@ -1,0 +1,36 @@
+﻿@model StardewGuide.ViewModels.FarmDetailViewModel
+
+<h1>@Model.Name</h1>
+    <h5>Farm Type: @Model.Type</h5>
+    <h5>Date Created: @Model.DateCreated</h5>
+
+@section Scripts {
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                    document.getElementById("form").submit();
+                }
+            });
+        }
+    </script>
+}
+<form method="post" id="form" asp-asp-controller="Farm" asp-action="Delete" onsubmit="submitForm(event)">
+    <input type="hidden" name="id" value="@Model.FarmId" />
+    <button type="submit" class="btn btn-danger">Delete Farm?</button>
+</form>

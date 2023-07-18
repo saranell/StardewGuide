@@ -1,0 +1,7 @@
+﻿body {
+    background-image: src("~/lib/images/782781.png");
+}
+
+.btn-primary {
+    text-align: center;
+}

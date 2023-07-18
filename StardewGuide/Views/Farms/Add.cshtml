@@ -1,0 +1,26 @@
+﻿@using StardewGuide.ViewModels
+@using StardewGuide.Models
+@model AddFarmViewModel
+
+<h1>Add Farm</h1>
+
+<form asp-controller="Farms" asp-action="Add" method="post">
+    <div class="form-group">
+        <label asp-for="Name" autocomplete="off"></label>
+        <input required="required" asp-for="Name" id="Name" autocomplete="off" autocorrect="off" autocapitalize="on" spellcheck="false" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Type">Type</label>
+        <select required asp-for="Type" asp-items="Model.FarmTypes"></select>
+        <span asp-validation-for="Type" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="DateCreated">Date Created</label>
+        <input required="required" type="date" asp-for="DateCreated" />
+        <span asp-validation-for="DateCreated" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Add Farm" />
+</form>

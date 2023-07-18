@@ -1,0 +1,38 @@
+﻿@using StardewGuide.Models
+@model List<Farm>
+
+<h1>My Farms</h1>
+<p>
+    <a asp-controller="Farms" asp-action="Add">Add A New Farm</a>
+</p>
+
+@if(Model.Count == 0)
+{
+    <p>Oh no! It looks like you haven't added any farms yet.</p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                Name
+            </th>
+            
+            <th>
+                Relationships
+            </th>
+            <th>
+                Edit/Update
+            </th>
+            
+        </tr>
+    @foreach (var farm in Model)
+    {
+        <tr>
+            <td>@farm.Name</td>
+            <td><a asp-controller="Villager" asp-action="Index">Villagers</a></td>
+            <td><a asp-controller="Farms" asp-action="Details" asp-route-id="@farm.Id">See Details</a></td>
+        </tr>
+    }
+    </table>
+}
