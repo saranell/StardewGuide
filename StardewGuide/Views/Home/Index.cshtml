@@ -3,8 +3,16 @@
 }
 <link rel="stylesheet" href="~/Views/Home/HomeStyleSheet.css"/>
 
+@if (User.Identity.IsAuthenticated)
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Farms" asp-action="Index">My Farms</a>
+    </li>
+} else
+{
+    <button class="btn btn-primary" id="loginButton" asp-controller="Account" asp-action="Login">Login</button>
+}
 
-<button class="btn btn-primary" id="loginButton">Login</button>
 
 
 @*<button class="btn btn-primary" onclick="displayAlert()">Example alert</button>
