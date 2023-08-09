@@ -12,9 +12,7 @@ namespace StardewGuide.Controllers
         public async Task Login(string returnUrl = "/")
         {
             var authenticationProperties = new LoginAuthenticationPropertiesBuilder()
-                // Indicate here where Auth0 should redirect the user after a login.
-                // Note that the resulting absolute Uri must be added to the
-                // **Allowed Callback URLs** settings for the app.
+
                 .WithRedirectUri(returnUrl)
                 .Build();
 
@@ -36,9 +34,7 @@ namespace StardewGuide.Controllers
         public async Task Logout()
         {
             var authenticationProperties = new LogoutAuthenticationPropertiesBuilder()
-                // Indicate here where Auth0 should redirect the user after a logout.
-                // Note that the resulting absolute Uri must be added to the
-                // **Allowed Logout URLs** settings for the app.
+
                 .WithRedirectUri(Url.Action("Index", "Home"))
                 .Build();
 

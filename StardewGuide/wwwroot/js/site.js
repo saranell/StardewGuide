@@ -1,5 +1,5 @@
 ﻿// sweet alert login form
-document.getElementById('loginButton').addEventListener('click', function () {
+/*document.getElementById('loginButton').addEventListener('click', function () {
     Swal.fire({
         title: 'Login Form',
         html: `<input type="text" id="login" class="swal2-input" placeholder="Username">
@@ -20,4 +20,4 @@ document.getElementById('loginButton').addEventListener('click', function () {
     Password: ${result.value.password}
   `.trim())
     })
-});
+});*/

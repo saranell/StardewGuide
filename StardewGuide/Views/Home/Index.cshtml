@@ -6,6 +6,8 @@
 @if (User.Identity.IsAuthenticated)
 {
     <li class="nav-item">
+        <a asp-controller="Account" asp-action="Profile">Hello @User.Identity.Name!</a>
+        <a id="qsLogoutBtn" asp-controller="Account" asp-action="Logout">Logout</a>
         <a class="nav-link text-dark" asp-area="" asp-controller="Farms" asp-action="Index">My Farms</a>
     </li>
 } else
