@@ -8,18 +8,14 @@ namespace StardewGuide.Models
         public int Id { get; set; }
         public string? Name { get; set; }
         public string? Birthday { get; set; }
-        public List<Item> Best_Gifts { get; set; }
-        //public string Hearts { get; set; }
-        public ICollection<Farm> Farms { get; set; }
+
         public Villager(string name)
         {
             Name = name;
-            Farms = new List<Farm>();
-            Best_Gifts = new List<Item>();
-        }    
-            
+        }
+
         public Villager()
-        {   
+        {
         }
 
         public override string? ToString()
