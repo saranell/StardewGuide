@@ -9,7 +9,19 @@ namespace StardewGuide.Controllers
 {
     public class AccountController : Controller
     {
-        public async Task Login(string returnUrl = "/")
+        [Route("/account/signup")]
+        public async Task Signup(string returnUrl = "/home")
+        {
+            var authenticationProperties = new LoginAuthenticationPropertiesBuilder()
+                .WithParameter("screen_hint", "signup")
+                .WithRedirectUri(returnUrl)
+                .Build();
+
+            await HttpContext.ChallengeAsync(Auth0Constants.AuthenticationScheme, authenticationProperties);
+        }
+
+        [Route("/account/login")]
+        public async Task Login(string returnUrl = "/home")
         {
             var authenticationProperties = new LoginAuthenticationPropertiesBuilder()
 
@@ -35,11 +47,12 @@ namespace StardewGuide.Controllers
         {
             var authenticationProperties = new LogoutAuthenticationPropertiesBuilder()
 
-                .WithRedirectUri(Url.Action("Index", "Home"))
+                .WithRedirectUri(Url.Action("Index", "Home", null, "https"))
                 .Build();
 
             await HttpContext.SignOutAsync(Auth0Constants.AuthenticationScheme, authenticationProperties);
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            Response.Cookies.Delete(".AspNetCore.Cookies");
         }
     }
 }

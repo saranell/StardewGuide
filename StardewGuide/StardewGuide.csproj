@@ -13,6 +13,7 @@
     <Content Remove="Views\Villagers\**" />
     <EmbeddedResource Remove="Views\Villagers\**" />
     <None Remove="Views\Villagers\**" />
+    <None Remove="Views\Account\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,4 +29,7 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Account\" />
+  </ItemGroup>
 </Project>
