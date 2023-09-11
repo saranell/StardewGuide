@@ -3,17 +3,17 @@ using StardewGuide.Data;
 using StardewGuide.Models;
 using StardewGuide.ViewModels;
 
-
 namespace StardewGuide.Controllers
-{ 
-    public class VillagerController : Controller 
+{
+    public class VillagerController : Controller
     {
         private FarmDbContext context;
 
-        public VillagerController (FarmDbContext dbContext)
+        public VillagerController(FarmDbContext dbContext)
         {
             context = dbContext;
         }
+
         public IActionResult Index()
         {
             List<Villager> villagers = context.Villagers
@@ -23,8 +23,8 @@ namespace StardewGuide.Controllers
             return View(villagers);
         }
 
-// TODO: populate the Best_Gifts property with list of items
-        public IActionResult Gifts(VillagerViewModel villagerViewModel)
+        // TODO: populate the Best_Gifts property with list of items
+        /*public IActionResult Gifts(VillagerViewModel villagerViewModel)
         {
             var villagers = context.Villagers.ToList();
             var viewModelList = new List<VillagerViewModel>();
@@ -40,12 +40,12 @@ namespace StardewGuide.Controllers
                     Id = villager.Id,
                     Name = villager.Name,
                     Birthday = villager.Birthday,
-                    Best_Gifts = bestGifts 
+                    Best_Gifts = bestGifts
                 };
 
                 viewModelList.Add(viewModel);
             }
             return View(viewModelList);
-        }
+        }*/
     }
 }
