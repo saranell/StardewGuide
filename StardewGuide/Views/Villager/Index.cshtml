@@ -82,7 +82,14 @@
 @*<div class="wrapper">*@
     <div class="gallery">
         <ul>
-            <li><img src="~/lib/images/Alex.png" /></li>
+        @foreach (var villager in Model)
+        {
+            <li>
+                <a asp-controller="Villager" asp-action="Details" asp-route-id="@villager.Id">
+                    <img src="~/lib/images/@villager.ImageFileName" />
+                </a>
+            </li>
+        }
             @*<li><img src="~/lib/images/Elliott.png" /></li>
             <li><img src="~/lib/images/Harvey.png" /></li>
             <li><img src="~/lib/images/Sam.png" /></li>
@@ -120,11 +127,4 @@
     </div>
 @*</div>*@
 
-@foreach (var villager in Model)
-{ 
-    <tr>
-        <td>@villager.Name</td>
-        <td>@villager.Birthday</td>
-        <td>@villager.BestGifts</td>
-    </tr>
-}
+

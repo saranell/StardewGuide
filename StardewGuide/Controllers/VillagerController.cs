@@ -23,6 +23,14 @@ namespace StardewGuide.Controllers
             return View(villagers);
         }
 
+        public IActionResult Details(int id)
+        {
+            Villager theVillager = context.Villagers
+                .Single(v => v.Id == id);
+            VillagerDetailsViewModel viewModel = new(theVillager);
+            return View(viewModel);
+        }
+
         // TODO: populate the Best_Gifts property with list of items
         /*public IActionResult Gifts(VillagerViewModel villagerViewModel)
         {
