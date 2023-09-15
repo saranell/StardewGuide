@@ -17,6 +17,7 @@ namespace StardewGuide.Models
 
         public Villager()
         {
+            ImageFileName = Id.ToString();
         }
 
         public override string? ToString()
