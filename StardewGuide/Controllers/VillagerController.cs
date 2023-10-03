@@ -3,10 +3,9 @@ using StardewGuide.Data;
 using StardewGuide.Models;
 using StardewGuide.ViewModels;
 
-
 namespace StardewGuide.Controllers
-{ 
-    public class VillagerController : Controller 
+{
+    public class VillagerController : Controller
     {
         private FarmDbContext context;
 
@@ -23,8 +22,20 @@ namespace StardewGuide.Controllers
             return View(villagers);
         }
 
-// TODO: populate the Best_Gifts property with list of items
-        public IActionResult Gifts(VillagerViewModel villagerViewModel)
+        public IActionResult Details(int id)
+        {
+            Villager theVillager = context.Villagers
+                .Single(v => v.Id == id);
+            VillagerDetailsViewModel viewModel = new(theVillager)
+            {
+                Id = theVillager.Id,
+                ImageFileName = theVillager.ImageFileName,
+            };
+            return View(viewModel);
+        }
+
+        // TODO: populate the Best_Gifts property with list of items
+        /*public IActionResult Gifts(VillagerViewModel villagerViewModel)
         {
             var villagers = context.Villagers.ToList();
             var viewModelList = new List<VillagerViewModel>();
@@ -40,7 +51,7 @@ namespace StardewGuide.Controllers
                     Id = villager.Id,
                     Name = villager.Name,
                     Birthday = villager.Birthday,
-                    Best_Gifts = bestGifts 
+                    Best_Gifts = bestGifts
                 };
 
                 viewModelList.Add(viewModel);

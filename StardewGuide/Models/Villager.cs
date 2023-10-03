@@ -8,10 +8,14 @@ namespace StardewGuide.Models
         public int Id { get; set; }
         public string? Name { get; set; }
         public string? Birthday { get; set; }
+        public string? ImageFileName { get; set; }
 
-        public Villager(string name)
+        public Villager(int id, string name, string birthday)
         {
+            Id = id;
             Name = name;
+            Birthday = birthday;
+            ImageFileName = Id.ToString();
         }
 
         public Villager()

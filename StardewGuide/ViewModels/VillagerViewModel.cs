@@ -4,12 +4,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace StardewGuide.ViewModels
 {
-    public class VillagerViewModel
+    public class VillagersViewModel
     {
-        public int Id { get; set; }
-        public string? Name { get; set; }
-        public string? Birthday { get; set; }
-        public List<Item>? Best_Gifts { get; set; }
-
+        public int Id { get; }
+        public string? Name { get; }
+        public string? Birthday { get; }
+        public string? ImageFileName { get; }
     }
 }
