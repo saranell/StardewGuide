@@ -1,7 +1,9 @@
 ﻿@model StardewGuide.ViewModels.VillagerDetailsViewModel
 
-@Model.ImageFileName
+
     <tr>
+    <td><img src="~/lib/images/@(Model.ImageFileName)" alt="Villager Image" /></td>
+        <td>@Model.Id</td>
         <td>@Model.Name</td>
         <td>@Model.Birthday</td>
 

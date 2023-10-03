@@ -27,7 +27,11 @@ namespace StardewGuide.Controllers
         {
             Villager theVillager = context.Villagers
                 .Single(v => v.Id == id);
-            VillagerDetailsViewModel viewModel = new(theVillager);
+            VillagerDetailsViewModel viewModel = new(theVillager)
+            {
+                Id = theVillager.Id,
+                ImageFileName = theVillager.ImageFileName,
+            };
             return View(viewModel);
         }
 

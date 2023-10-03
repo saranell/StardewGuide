@@ -86,7 +86,8 @@
         {
             <li>
                 <a asp-controller="Villager" asp-action="Details" asp-route-id="@villager.Id">
-                    <img src="~/lib/images/@(villager.ImageFileName).png" />
+                    @*<img src="~/lib/images/@(villager.ImageFileName).png" />*@
+                    <img src="@Url.Content("~/lib/images/" + villager.ImageFileName)" alt="Villager Image" />
                 </a>
             </li>
         }
